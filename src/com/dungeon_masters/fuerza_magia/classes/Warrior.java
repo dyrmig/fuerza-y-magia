@@ -3,7 +3,16 @@ package com.dungeon_masters.fuerza_magia.classes;
 public class Warrior extends Character {
     private int stamina;
     private int strength;
+    public Warrior(String name, int hp, int stamina, int strength) {
+        super(name, hp);
+        this.stamina = stamina;
+        this.strength = strength;
+    }
 
+    @Override
+    public void attack(Character character) {
+
+    }
     public int getStamina() {
         return stamina;
     }
@@ -17,11 +26,6 @@ public class Warrior extends Character {
     }
 
     public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public Warrior(int stamina, int strength) {
-        this.stamina = stamina;
         this.strength = strength;
     }
 }
