@@ -8,10 +8,9 @@ public abstract class Character implements Attacker {
     private int hp;
     private boolean isAlive;
 
-    public Character(String name, int hp) {
+    public Character(String name) {
         this.id = generateId();
         this.name = name;
-        this.hp = hp;
         this.isAlive = true;
     }
 
