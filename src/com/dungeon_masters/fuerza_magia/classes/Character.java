@@ -14,10 +14,9 @@ public abstract class Character implements Attacker {
         this.isAlive = true;
     }
 
-    @Override
-    public void attack(Character character) {
-
-    }
+    //@Override
+    //public void attack(Character character) {
+    //}
 
     public String generateId(){
         int random = (int)Math.floor(Math.random()*(9999 - 1000 + 1) + 1000);

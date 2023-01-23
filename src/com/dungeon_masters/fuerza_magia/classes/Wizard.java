@@ -10,8 +10,25 @@ public class Wizard extends Character {
         intelligence = generateIntelligence();
     }
     @Override
-    public void attack(Character character) {
-
+    public String attack(Character character) {
+        String attackType = "";
+        int random = (int)Math.floor(Math.random()*(2 - 1 + 1) + 1);
+        if(random==1 && mana>=5){
+            attackType = "Fireball";
+            character.setHp(character.getHp()-intelligence);
+            mana = mana - 5;
+        } else if(random==2 && mana > 0) {
+            attackType = "Staff hit";
+            character.setHp(character.getHp()-2);
+            mana = mana + 1;
+        } else {
+            attackType = "Recover mana";
+            mana = mana + 2;
+        }
+        if(character.getHp() <= 0){
+            character.setAlive(false);
+        }
+        return attackType;
     }
     public int generateHp(){
         int random = (int)Math.floor(Math.random()*(100 - 50 + 1) + 50);
