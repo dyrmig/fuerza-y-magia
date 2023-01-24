@@ -4,12 +4,46 @@ import com.dungeon_masters.fuerza_magia.classes.Character;
 import com.dungeon_masters.fuerza_magia.classes.Warrior;
 import com.dungeon_masters.fuerza_magia.classes.Wizard;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Warrior character1 = new Warrior("jugadaor1");
-        Wizard character2 = new Wizard("jugador2");
-        //System.out.println(character1.getStrength());
-        //System.out.println(character2.generateMana());
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Player1 introduce your name:");
+        String namePlayer1 = scanner.nextLine();
+
+        String typePlayer1 = "";
+        while (!typePlayer1.equals("wizard") && !typePlayer1.equals("warrior")){
+            System.out.println("Player1 chose 'wizard' or 'warrior':");
+            typePlayer1 = scanner.nextLine();
+        }
+
+        System.out.println("Player2 introduce your name:");
+        String namePlayer2 = scanner.nextLine();
+
+        String typePlayer2 = "";
+        while (!typePlayer2.equals("wizard") && !typePlayer2.equals("warrior")){
+            System.out.println("Player2 chose 'wizard' or 'warrior':");
+            typePlayer2 = scanner.nextLine();
+        }
+
+        scanner.close();
+
+        Character character1 = null;
+        Character character2 = null;
+
+        if(typePlayer1.equals("wizard")){
+            character1 = createWizard(namePlayer1);
+        } else {
+            character1 = createWarrior(namePlayer1);
+        }
+
+        if(typePlayer2.equals("wizard")){
+            character2 = createWizard(namePlayer2);
+        } else {
+            character2 = createWarrior(namePlayer2);
+        };
 
         game(character1, character2);
     }
@@ -37,5 +71,11 @@ public class Main {
                 roundCounter = 0;
             }
         }
+    }
+    public static Wizard createWizard(String name){
+            return new Wizard(name);
+    }
+    public static Warrior createWarrior(String name){
+        return new Warrior(name);
     }
 }
