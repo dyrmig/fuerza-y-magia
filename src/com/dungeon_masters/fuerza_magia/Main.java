@@ -15,11 +15,14 @@ public class Main {
     }
     public static void game(Character player1, Character player2){
         boolean runGame = true;
+        int roundCounter = 0;
         while (runGame){
+            roundCounter++;
+            System.out.println("===Round:"+roundCounter+"===");
             String currentAttack = player1.attack(player2);
-            System.out.println(player1.getName() + " " + currentAttack + " " + player2.getName() + " HP: " + player2.getHp());
-            player2.attack(player1);
-            System.out.println(player2.getName() + " " + currentAttack + " " + player1.getName() + " HP: " + player1.getHp());
+            System.out.println(player1.getName() + " --" + currentAttack + "--> " + player2.getName() + " HP: " + player2.getHp());
+            currentAttack = player2.attack(player1);
+            System.out.println(player2.getName() + " --" + currentAttack + "--> " + player1.getName() + " HP: " + player1.getHp());
             if(!player1.isAlive() || !player2.isAlive()){
                 if(!player1.isAlive() && !player2.isAlive()){
                     System.out.println("TIE !");
@@ -29,6 +32,7 @@ public class Main {
                     System.out.println(player1.getName() + " " + "is the winner!!");
                 }
                 runGame = false;
+                roundCounter = 0;
             }
         }
     }
