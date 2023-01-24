@@ -16,6 +16,8 @@ public class Main {
     public static void game(Character player1, Character player2){
         boolean runGame = true;
         int roundCounter = 0;
+        System.out.println(player1.getName()+": "+player1.getClass().getSimpleName()+" HP:"+player1.getHp());
+        System.out.println(player2.getName()+": "+player2.getClass().getSimpleName()+" HP:"+player2.getHp());
         while (runGame){
             roundCounter++;
             System.out.println("===Round:"+roundCounter+"===");
